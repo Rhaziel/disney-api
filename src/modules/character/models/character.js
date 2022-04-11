@@ -1,13 +1,12 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
-
+const { DataTypes, Model } = require('sequelize');
+const sequelize = require('../../../database/dbConfig')
 
 class Character extends Model {
-    static associate(models){
+    /*static associate(models){
         Character.belongsToMany(models.Film,{
             through: 'Character_Film'
         })
-    }
+    }*/
 };
 
 Character.init({
@@ -32,10 +31,13 @@ Character.init({
 }, {
     // Other model options go here
     sequelize, // We need to pass the connection instance
-    modelName: 'Character' // We need to choose the model name
+    modelName: 'Character', // We need to choose the model name
+    timestamps: false
 });
 
 //return Character;
 
 // the defined model is the class itself
 console.log(Character === sequelize.models.Character); // true
+
+module.exports = Character;
