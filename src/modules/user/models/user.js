@@ -1,7 +1,7 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../../../database/dbConfig')
 
-class Character extends Model {
+class User extends Model {
     /*static associate(models){
         Character.belongsToMany(models.Film,{
             through: 'Character_Film'
@@ -9,35 +9,29 @@ class Character extends Model {
     }*/
 };
 
-Character.init({
+User.init({
     // Model attributes are defined here
-    image: {
+    userName: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    name: {
+    email: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    age: {
-        type: DataTypes.INTEGER
-    },
-    weight: {
-        type: DataTypes.REAL
-    },
-    story: {
+    password: {
         type: DataTypes.STRING
     },
 }, {
     // Other model options go here
     sequelize, // We need to pass the connection instance
-    modelName: 'Character', // We need to choose the model name
+    modelName: 'User', // We need to choose the model name
     timestamps: false
 });
 
 //return Character;
 
 // the defined model is the class itself
-console.log(Character === sequelize.models.Character); // true
+console.log(User === sequelize.models.Character); // true
 
-module.exports = Character;
+module.exports = User;

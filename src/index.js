@@ -1,6 +1,8 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const characterRoutes = require('./modules/character/routes/characterRoutes');
+const authRoutes = require('./modules')
 const sequelize = require('./database/sequelize');
 require('./database/associations');
 
@@ -21,6 +23,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('*', (req, res) => res.status(200).send({
     message: 'Welcome to the beginning of nothingness.',
 }));
+
+app.use('/characters', characterRoutes);
+app.use('/auth', authRoutes)
 
 //Configure the port with which I am going to work
 const port = parseInt(process.env.PORT,10) || 8000;
