@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const characterRoutes = require('./modules/character/routes/characterRoutes');
-const authRoutes = require('./modules')
+const authRoutes = require('./modules/user/routes/userRoutes')
 const sequelize = require('./database/sequelize');
 require('./database/associations');
 

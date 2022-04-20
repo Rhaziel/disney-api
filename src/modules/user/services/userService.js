@@ -5,7 +5,7 @@ const createUser = async (userName, email, password) => {
         let userDoc = await User.findOne({ where: { userName: userName } })
 
         if(!userDoc){
-            userDoc = await User.findOne({email: email})
+            userDoc = await User.findOne({where: {email: email} })
             if(!userDoc){
                 return await saveUser(userName,email,password)
             }
@@ -29,6 +29,19 @@ const saveUser = async (userName, email, password) => {
 
 }
 
+const login = async (userName,password) => {
+    try{
+        let userDoc = await User.findOne({ where: {userName: userName, password: password} })
 
+        if(userDoc) {
+            return userDoc
+        }else{
+            return null
+        }
+    }catch(error){
+        console.error("login error: ",error)
+        throw new Error("login error "+error)
+    }
+}
 
-module.exports = createUser;
+module.exports = {createUser, login};
