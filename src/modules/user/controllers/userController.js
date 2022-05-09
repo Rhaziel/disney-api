@@ -10,7 +10,7 @@ const loginAction = async (req, res) => {
         let response = await login(userName,password)
 
         if(!response)
-            res.status(404).send("content not found!")
+            res.status(404).send("Bad credentials!")
 
         res.status(200).json(response)
     }catch (error) {

@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const getToken = require('../../commons/utils/jwtUtils')
 
 const createUser = async (userName, email, password) => {
     try{
@@ -34,7 +35,7 @@ const login = async (userName,password) => {
         let userDoc = await User.findOne({ where: {userName: userName, password: password} })
 
         if(userDoc) {
-            return userDoc
+            return getToken(userDoc.userName)
         }else{
             return null
         }

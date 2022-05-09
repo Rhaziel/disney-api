@@ -28,7 +28,7 @@ app.use('/characters', characterRoutes);
 app.use('/auth', authRoutes)
 
 //Configure the port with which I am going to work
-const port = parseInt(process.env.PORT,10) || 8000;
+const port = parseInt(process.env.PORT,10) || 3000;
 app.set('port', port);
 
 // I establish the connection with the database

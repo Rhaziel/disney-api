@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,17 @@
   "dependencies": {
     "body-parser": "^1.19.2",
     "db-migrate": "^0.11.13",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
+    "express-jwt": "^7.6.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.16.1",
     "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
