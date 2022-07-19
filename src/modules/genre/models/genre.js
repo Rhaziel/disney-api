@@ -22,6 +22,7 @@ Genre.init({
 });
 
 // the defined model is the class itself
+console.log('Genre model');
 console.log(Genre === sequelize.models.Genre); // true
 
 module.exports = Genre;

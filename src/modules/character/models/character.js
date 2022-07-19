@@ -38,6 +38,7 @@ Character.init({
 //return Character;
 
 // the defined model is the class itself
+console.log('Character model');
 console.log(Character === sequelize.models.Character); // true
 
 module.exports = Character;

@@ -35,6 +35,7 @@ Film.init({
 //return Film;
 
 // the defined model is the class itself
+console.log('Film model');
 console.log(Film === sequelize.models.Film); // true
 
 module.exports = Film;

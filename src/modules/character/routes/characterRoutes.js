@@ -1,9 +1,9 @@
 const express = require('express');
-const { createCharacterAction, getCharacterAction, updateCharacterAction } = require('../controllers/characterController');
+const { createCharacterAction, getCharacterAction, updateCharacterAction, getCharactersAction} = require('../controllers/characterController');
 const characterRoutes = express.Router();
 
 characterRoutes.get('/characters', (req, res) => {
-    res.send("Prueba");
+    return getCharactersAction(req, res)
 });
 
 //Create

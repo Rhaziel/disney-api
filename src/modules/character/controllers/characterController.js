@@ -1,11 +1,11 @@
-const { createCharacter, getCharacter, updateCharacter } = require("../services/characterService");
+const { createCharacter, getCharacter, updateCharacter, getCharacters } = require("../services/characterService");
 
 const createCharacterAction = async (req, res) => {
     try {
 
-        const {image,name,age,weight,story,films} = req.body
+        const {image,name,age,weight,story, films} = req.body
 
-        if (!image || !name || !age || !weight || !story || !films)
+        if (!image || !name || !age || !weight || !story)
             return res.status(400).send("image,name,age,weight,history and films parameters is required!")
 
         let response = await createCharacter({ image,name,age,weight,story,films })
@@ -54,4 +54,17 @@ const updateCharacterAction = async (req,res) => {
     }
 }
 
-module.exports = {createCharacterAction, getCharacterAction, updateCharacterAction};
+const getCharactersAction = async (req,res) => {
+    try{
+        let response = await getCharacters()
+
+        if(!response)
+            res.status(404).send("content not found!")
+
+        res.status(200).json(response)
+    }catch(error){
+        res.status(500).send("server error"+error)
+    }
+}
+
+module.exports = {createCharacterAction, getCharacterAction, updateCharacterAction, getCharactersAction};

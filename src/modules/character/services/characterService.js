@@ -57,4 +57,17 @@ const updateCharacter = async (id, body) => {
     })
 }
 
-module.exports = { createCharacter, getCharacter, updateCharacter}
+const getCharacters = () => {
+    return new Promise( (resolve, reject)=>{
+        Character.findAll({attributes: ['image', 'nombre']})
+            .then(doc => {
+                resolve(doc)
+            })
+            .catch(error => {
+                console.error("getUser error: ",error)
+                reject(error)
+            })
+    })
+}
+
+module.exports = { createCharacter, getCharacter, updateCharacter, getCharacters}

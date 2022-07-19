@@ -32,6 +32,7 @@ User.init({
 //return Character;
 
 // the defined model is the class itself
-console.log(User === sequelize.models.Character); // true
+console.log('User model');
+console.log(User === sequelize.models.User); // true
 
 module.exports = User;
